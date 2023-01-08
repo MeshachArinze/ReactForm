@@ -6,7 +6,7 @@ function App() {
     username: "",
     email: "",
     password: "",
-    confirmpassword: "",
+    confirmPassword: "",
     birthday: "",
   });
 
@@ -16,44 +16,44 @@ function App() {
       name: "username",
       type: "text",
       placeholder: "username",
-      label: "password",
+      label: "Name",
       errorMessage:
-        "uesrname should be 3 - 16 characters and should include any character",
+        "username should be 3 - 16 characters and should include any character",
+        required: true
     },
     {
       id: 2,
-      name: "username",
+      name: "email",
       type: "email",
       placeholder: "email",
-      label: "email",
+      label: "Email",
       errorMessage: "it should be a valid email address",
       required: true,
     },
     {
       id: 3,
-      name: "username",
+      name: "birthday",
       type: "date",
-      placeholder: "username",
+      placeholder: "Birthday",
       label: "Birthday",
-      errorMessage: "",
     },
     {
       id: 4,
-      name: "Password",
+      name: "password",
       type: "password",
       placeholder: "password",
       label: "password",
       errorMessage:
         "password should be 8 - 16 character and it should be 1, letters, 1 number, 1 special character",
       required: true,
-      pattern: " ^(?=.*d)(?=.*[a-zA-Z])(?=.*[W_]).{3,}$",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8, 20}`,
     },
     {
       id: 5,
-      name: "username",
+      name: "text",
       type: "text",
-      placeholder: "username",
-      label: "password",
+      placeholder: "Confirm Password",
+      label: "Confirm Password",
       errorMessage: "password dont match",
       pattern: values.password,
     },
@@ -68,20 +68,22 @@ function App() {
     setValues({ ...values, [e.target.name]: [e.target.value] });
 
   return (
-    <div className="grid place-items-center h-screen">
+    <div className="grid place-items-center w-full h-screen bg-yellow ">
       <h1 className="text-center">Register</h1>
-      <form className="w-[500px] bg-sky-500 h-auto flex flex-col" onSubmit={handleSubmit}>
-        {inputs.length
-          ? inputs?.map((input) => (
-              <FormInput
-                key={input.id}
-                {...input}
-                value={values[input.name]}
-                onChange={onChange}
-              />
-            ))
-          : null}
-        <button>Submit</button>
+      <form
+        className="w-full max-w-[400px] bg bg-gray-light py-4 h-auto flex flex-col rounded-lg"
+        onSubmit={handleSubmit}
+      >
+        {inputs.length &&
+          inputs?.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+        <button className=" text-sm bg-orange px-[15px] py-2">Submit</button>
       </form>
     </div>
   );
