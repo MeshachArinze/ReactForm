@@ -71,7 +71,7 @@ function App() {
     <div className="grid place-items-center w-full h-screen bg-yellow ">
       <h1 className="text-center">Register</h1>
       <form
-        className="w-full max-w-[400px] bg bg-gray-light py-4 h-auto flex flex-col rounded-lg"
+        className="w-full max-w-[400px] mx-[10px] bg-gray-light py-2 h-auto flex flex-col rounded-lg"
         onSubmit={handleSubmit}
       >
         {inputs.length &&
@@ -83,7 +83,9 @@ function App() {
               onChange={onChange}
             />
           ))}
-        <button className=" text-sm bg-orange px-[15px] py-2">Submit</button>
+        <button className=" text-sm bg-orange w-[100px] m-auto px-[15px] py-2">
+          Submit
+        </button>
       </form>
     </div>
   );
