@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import FormInput from "./components/FormInput";
 
 function App() {
@@ -69,9 +68,9 @@ function App() {
     setValues({ ...values, [e.target.name]: [e.target.value] });
 
   return (
-    <div className="App">
-      <h1>Register</h1>
-      <form className="w-[500px] bg-sky-500" onSubmit={handleSubmit}>
+    <div className="grid place-items-center h-screen">
+      <h1 className="text-center">Register</h1>
+      <form className="w-[500px] bg-sky-500 h-auto flex flex-col" onSubmit={handleSubmit}>
         {inputs.length
           ? inputs?.map((input) => (
               <FormInput
